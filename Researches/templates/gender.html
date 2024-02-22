@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <h1>성별</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" name="gender" value="0">남자</button>
+        <button type="submit" name="gender" value="1">여자</button>
+    </form>
+{% endblock %}
