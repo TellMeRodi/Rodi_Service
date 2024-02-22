@@ -1,5 +1,20 @@
-{% extends 'base.html' %}
 
-{% block body %}
 
-{% endblock%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Travel test</title>
+</head>
+<body>
+    <form method="post" action="{% url 'research' %}">
+        {% csrf_token %}
+        {% for question in questions %}
+            <h3>{{ question.question_text }}</h3>
+            <input type="text" name="answer{{ research.id }}">
+        {% endfor %}
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
