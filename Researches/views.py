@@ -60,3 +60,10 @@ def style6(request):
         request.session['style6'] = style6
         return redirect('Researches:style7')
     return render(request, 'style6.html')
+
+def style7(request):
+    if request.method == 'POST':
+        style7 = request.POST.get('style7')
+        request.session['style7'] = style7
+        return redirect('Researches:style8')
+    return render(request, 'style7.html')
