@@ -122,3 +122,6 @@ def MBTI_JP(request):
         )
         return redirect('Researches:result')
     return render(request, 'MBTI_JP.html')
+
+def result(request):
+    return render(request, 'result.html')
