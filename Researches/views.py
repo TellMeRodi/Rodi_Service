@@ -88,3 +88,10 @@ def MBTI_SN(request):
         request.session['MBTI_SN'] = MBTI_SN
         return redirect('Researches:MBTI_FT')
     return render(request, 'MBTI_SN.html')
+
+def MBTI_FT(request):
+    if request.method == 'POST':
+        MBTI_FT = request.POST.get('MBTI_FT')
+        request.session['MBTI_FT'] = MBTI_FT
+        return redirect('Researches:MBTI_JP')
+    return render(request, 'MBTI_FT.html')
