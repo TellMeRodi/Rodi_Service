@@ -9,4 +9,5 @@ urlpatterns = [
     path('age/', views.age, name='age'),    
     path('style1/', views.style1, name='style1'),
     path('style2/', views.style2, name='style2'),
+    path('style3/', views.style3, name='style3'),
 ]
