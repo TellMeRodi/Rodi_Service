@@ -53,3 +53,10 @@ def style5(request):
         request.session['style5'] = style5
         return redirect('Researches:style6')
     return render(request, 'style5.html')
+
+def style6(request):
+    if request.method == 'POST':
+        style6 = request.POST.get('style6')
+        request.session['style6'] = style6
+        return redirect('Researches:style7')
+    return render(request, 'style6.html')
