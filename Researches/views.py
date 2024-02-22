@@ -11,3 +11,10 @@ def gender(request):
         request.session['gender'] = gender
         return redirect('Researches:age')
     return render(request, 'gender.html')
+
+def age(request):
+    if request.method == 'POST':
+        age = request.POST.get('age')
+        request.session['age'] = age
+        return redirect('Researches:style1')
+    return render(request, 'age.html')
