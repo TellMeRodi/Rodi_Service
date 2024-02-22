@@ -95,3 +95,30 @@ def MBTI_FT(request):
         request.session['MBTI_FT'] = MBTI_FT
         return redirect('Researches:MBTI_JP')
     return render(request, 'MBTI_FT.html')
+
+def MBTI_JP(request):
+    if request.method == 'POST':
+        MBTI_JP = request.POST.get('MBTI_JP')
+        request.session['MBTI_JP'] = MBTI_JP
+
+        MBTI_EI=request.session['MBTI_EI'],
+        MBTI_SN=request.session['MBTI_SN'],
+        MBTI_FT=request.session['MBTI_FT'],
+
+        MBTI=int(str(MBTI_EI) + str(MBTI_SN) + str(MBTI_FT) + str(MBTI_JP))
+        
+        Question.objects.create(
+            age=request.session['age'],
+            gender=request.session['gender'],
+            style1=request.session['style1'],
+            style2=request.session['style2'],
+            style3=request.session['style3'],
+            style4=request.session['style4'],
+            style5=request.session['style5'],
+            style6=request.session['style6'],
+            style7=request.session['style7'],
+            style8=request.session['style8'],
+            MBTI=MBTI,
+        )
+        return redirect('Researches:result')
+    return render(request, 'MBTI_JP.html')
