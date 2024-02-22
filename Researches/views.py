@@ -25,3 +25,10 @@ def style1(request):
         request.session['style1'] = style1
         return redirect('Researches:style2')
     return render(request, 'style1.html')
+
+def style2(request):
+    if request.method == 'POST':
+        style2 = request.POST.get('style2')
+        request.session['style2'] = style2
+        return redirect('Researches:style3')
+    return render(request, 'style2.html')
