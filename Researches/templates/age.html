@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <h1>성별</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" name="age" value="10">10대</button>
+        <button type="submit" name="age" value="20">20대</button>
+        <button type="submit" name="age" value="20">30대</button>
+        <button type="submit" name="age" value="20">40대</button>
+        <button type="submit" name="age" value="20">50대</button>
+        <button type="submit" name="age" value="20">60대 이상</button>
+    </form>
+{% endblock %}

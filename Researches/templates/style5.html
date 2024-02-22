@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <h1>여행스타일5</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" name="style5" value="0">스타일A</button>
+        <button type="submit" name="style5" value="1">스타일B</button>
+    </form>
+{% endblock %}

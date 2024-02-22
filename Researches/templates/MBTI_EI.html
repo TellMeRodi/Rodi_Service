@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <h1>MBTI_EI</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" name="MBTI_EI" value="0">E</button>
+        <button type="submit" name="MBTI_EI" value="1">I</button>
+    </form>
+{% endblock %}
