@@ -14,4 +14,5 @@ urlpatterns = [
     path('style5/', views.style5, name='style5'),
     path('style6/', views.style6, name='style6'),
     path('style7/', views.style7, name='style7'),
+    path('style8/', views.style8, name='style8'),
 ]

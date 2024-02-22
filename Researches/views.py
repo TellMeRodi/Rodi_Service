@@ -67,3 +67,10 @@ def style7(request):
         request.session['style7'] = style7
         return redirect('Researches:style8')
     return render(request, 'style7.html')
+
+def style8(request):
+    if request.method == 'POST':
+        style8 = request.POST.get('style8')
+        request.session['style8'] = style8
+        return redirect('Researches:MBTI_EI')
+    return render(request, 'style8.html')
