@@ -15,4 +15,5 @@ urlpatterns = [
     path('style6/', views.style6, name='style6'),
     path('style7/', views.style7, name='style7'),
     path('style8/', views.style8, name='style8'),
+    path('MBTI_EI/', views.MBTI_EI, name='MBTI_EI'),
 ]

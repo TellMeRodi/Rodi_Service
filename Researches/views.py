@@ -74,3 +74,10 @@ def style8(request):
         request.session['style8'] = style8
         return redirect('Researches:MBTI_EI')
     return render(request, 'style8.html')
+
+def MBTI_EI(request):
+    if request.method == 'POST':
+        MBTI_EI = request.POST.get('MBTI_EI')
+        request.session['MBTI_EI'] = MBTI_EI
+        return redirect('Researches:MBTI_SN')
+    return render(request, 'MBTI_EI.html')
