@@ -56,11 +56,11 @@ def MBTI_JP(request):
         MBTI_JP = request.POST.get('MBTI_JP')
         request.session['MBTI_JP'] = MBTI_JP
 
-        MBTI_EI = request.session['MBTI_EI'][0]
-        MBTI_SN = request.session['MBTI_SN'][0]
-        MBTI_FT = request.session['MBTI_FT'][0]
+        MBTI_EI = request.session['MBTI_EI']
+        MBTI_SN = request.session['MBTI_SN']
+        MBTI_FT = request.session['MBTI_FT']
 
-        MBTI=int(MBTI_EI + MBTI_SN + MBTI_FT + MBTI_JP)
+        MBTI=MBTI_EI + MBTI_SN + MBTI_FT + MBTI_JP
         
         Question.objects.create(
             age=request.session['age'],
