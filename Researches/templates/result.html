@@ -1,5 +1,20 @@
 {% extends 'base.html' %}
 
 {% block body %}
-    <h1>Result</h1>
+    <h1>추천 결과</h1>
+    {% if recommendations %}
+    <h2>당신에게 추천하는 도시는 다음과 같습니다:</h2>
+    <ul>
+        {% for city in recommendations %}
+        <li>{{ city }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>추천할 도시를 찾을 수 없습니다.</p>
+    {% endif %}
+
+    {% if error %}
+    <p>오류: {{ error }}</p>
+    {% endif %}
+
 {% endblock %}
