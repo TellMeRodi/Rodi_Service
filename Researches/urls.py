@@ -12,5 +12,5 @@ urlpatterns = [
     path('MBTI_SN/', views.MBTI_SN, name='MBTI_SN'),
     path('MBTI_FT/', views.MBTI_FT, name='MBTI_FT'),
     path('MBTI_JP/', views.MBTI_JP, name='MBTI_JP'),
-    path('result/', views.result, name='result'),
+    path('recommendations/', views.get_recommendations, name='recommendations'),
 ]
