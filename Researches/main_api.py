@@ -15,8 +15,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-traveler = pd.read_csv('C:/Users/Dohyeon/Desktop/camp31/파이널프로젝트/데이터/recom_dataset.csv').iloc[:, :-3]
-like_city = pd.read_csv('C:/Users/Dohyeon/Desktop/camp31/파이널프로젝트/데이터/recom_dataset.csv').iloc[:, [0] + list(range(-3, 0))]
+traveler = pd.read_csv('./recom_dataset.csv').iloc[:, :-3]
+like_city = pd.read_csv('./recom_dataset.csv').iloc[:, [0] + list(range(-3, 0))]
 
 
 @app.get("/")
