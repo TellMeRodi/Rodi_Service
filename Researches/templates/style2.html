@@ -2,14 +2,25 @@
 {% load static %}
 {% block body %}
     <div style="text-align: center; margin-top: 80px;">
-        <h1 style="margin-bottom: 35px; font-size: 45px;" class="Black_Han_Sans">선호하는 여행 기간은?</h1>
+        <h1 style="margin-bottom: 35px; font-size: 45px;" class="ONE-Mobile-POP">선호하는 여행 기간은?</h1>
         <form method="POST">
             {% csrf_token %}
             <div  class="d-grid gap-2 col-6 mx-auto">
-            <button type="submit" name="style2" value="0" class = "btn btn-warning" style="font-size: 19px;">여행은 무조건 숙박이지!</button>
-            <button type="submit" name="style2" value="1" class="btn btn-success" style="font-size: 19px;">알찬 당일치기도 좋아!</button>
+            <button type="submit" name="style2" value="0" class = "btn btn-light border border-primary border-3 Black_Han_Sans" style="font-size: 24px;">여행은 무조건 <span class="highlight">숙박</span>이지!</button>
+            <button type="submit" name="style2" value="1" class = "btn btn-light border border-primary border-3 Black_Han_Sans" style="font-size: 24px;">알찬 <span class="highlight2">당일치기</span>도 좋아!</button>
             </div>
         </form>
     </div>
-    
+    <style>
+    .highlight {
+        color: rgb(99, 183, 14); /* 받기 텍스트를 초록색으로 설정합니다. */
+        font-weight: bold;
+        font-size: 30px;
+    }
+    .highlight2 {
+        color: rgb(94, 14, 199); /* 받기 텍스트를 초록색으로 설정합니다. */
+        font-weight: bold;
+        font-size: 30px;
+    }
+</style>
 {% endblock %}

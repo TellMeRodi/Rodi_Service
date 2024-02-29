@@ -7,6 +7,12 @@
     font-family: 'Black_Han_Sans';
     src: url('/static/fonts/Black_Han_Sans/BlackHanSans-Regular.ttf') format('truetype'); 
 }
+@font-face {
+    font-family: 'ONE-Mobile-POP';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-POP.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
 
 .KoreanText {
@@ -19,4 +25,7 @@
 }
 .Black_Han_Sans{
     font-family: 'Black_Han_Sans', cursive;
+}
+.ONE-Mobile-POP{
+    font-family: 'ONE-Mobile-POP', cursive;
 }
