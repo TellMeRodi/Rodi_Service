@@ -1,22 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block body %}
-<div style="text-align: center; margin-top: 80px;">
-    <h1 style="margin-bottom: 35px; font-size: 45px;" class="Black_Han_Sans">MBTI_FT</h1>
-    <form method="POST">
-        {% csrf_token %}
-        <div  class="d-grid gap-2 col-6 mx-auto">
-        <button type="submit" name="MBTI_FT" value="F" class="btn btn-dark" style="font-size: 19px;">F</button>
-        <button type="submit" name="MBTI_FT" value="T" class="btn btn-dark" style="font-size: 19px;">T</button>
-        </div>
-    </form>
-</div>
-<style>
-    body {
-        background-image: url("{% static 'images/k.jpg' %}");
-        background-size: 20%; /* 배경 이미지를 화면에 맞게 조절합니다. */
-        background-repeat: repeat;
-        background-position: center; /* 배경 이미지를 가운데 정렬합니다. */
-    }
-</style>
+    <div style="text-align: center; margin-top: 40px;">
+        <h1 style="margin-bottom: 20px; font-size: 45px; font-weight: bold;" class="Dovemayo_gothic">
+            아름다운 여행지를 왔다. 여행지를 보며 드는 생각은?
+        </h1>
+        <img style='width: 350px;' src = "{% static 'images/FT.jpeg' %}">
+        <form method="POST">
+            {% csrf_token %}
+            <div  class="d-grid gap-2 col-4 mx-auto" id="fontDiv">
+            <button type="submit" name="MBTI_FT" value="F" class="btn btn-light border border-secondary border-3 Dovemayo_gothic" style="font-size: 24px; font-weight: bold;"><span class="highlight">F </span>와 예쁘다 친구한테 찍어서 보내줘야지</button>
+            <button type="submit" name="MBTI_FT" value="T" class="btn btn-light border border-secondary border-3 Dovemayo_gothic" style="font-size: 24px; font-weight: bold;"><span class="highlight2">T </span>예쁘네, 이런 아름다운 풍광(풍경)을 만들어 낸 대자연이란.. 구구절절..</button>
+            </div>
+        </form>
+    </div> 
 {% endblock %}

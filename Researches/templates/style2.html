@@ -2,8 +2,11 @@
 {% load static %}
 {% block body %}
     <div style="text-align: center; margin-top: 40px;">
-        <h1 style="margin-bottom: 20px; font-size: 45px; font-weight: bold;" class="Dovemayo_gothic">여행 계획을 짜는 중입니다! 여행 계획이 어떻게 되세요?</h1>
-        <!-- <img style='width: 350px;' src = "{% static 'images/cat.jpg' %}"> -->
+        <h1 style="margin-bottom: 20px; font-size: 45px; font-weight: bold;" class="Dovemayo_gothic">
+            여행 계획을 짜는 중입니다! <br>
+            여행 계획이 어떻게 되세요?
+        </h1>
+        <img style='width: 350px;' src = "{% static 'images/style2.jpg' %}">
         <form method="POST">
             {% csrf_token %}
             <div  class="d-grid gap-2 col-4 mx-auto" id="fontDiv">

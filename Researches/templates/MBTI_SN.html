@@ -1,22 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block body %}
-<div style="text-align: center; margin-top: 80px;">
-    <h1 style="margin-bottom: 35px; font-size: 45px;" class="Black_Han_Sans">MBTI_SN</h1>
+<div style="text-align: center; margin-top: 40px;">
+    <h1 style="margin-bottom: 20px; font-size: 45px; font-weight: bold;" class="Dovemayo_gothic">
+        두근두근 여행 전 날! 잠들기 전… 
+    </h1>
+    <img style='width: 350px;' src = "{% static 'images/SN.png' %}">
     <form method="POST">
         {% csrf_token %}
-        <div  class="d-grid gap-2 col-6 mx-auto">
-        <button type="submit" name="MBTI_SN" value="S" class="btn btn-dark" style="font-size: 19px;">S</button>
-        <button type="submit" name="MBTI_SN" value="N" class="btn btn-dark" style="font-size: 19px;">N</button>
+        <div  class="d-grid gap-2 col-4 mx-auto" id="fontDiv">
+        <button type="submit" name="MBTI_SN" value="S" class="btn btn-light border border-secondary border-3 Dovemayo_gothic" style="font-size: 24px; font-weight: bold;"><span class="highlight">S </span>여행가서 뭐 할까? 뭐 먹을ㄲ…..곧 잠든다</button>
+        <button type="submit" name="MBTI_SN" value="N" class="btn btn-light border border-secondary border-3 Dovemayo_gothic" style="font-size: 24px; font-weight: bold;"><span class="highlight2">N </span>이번 여행의 컨셉은 뭐지? 기차타고 가는 길에 좀비 나오면 어떡하지? 상상의 나래를 펼친다</button>
         </div>
     </form>
-</div>
-<style>
-    body {
-        background-image: url("{% static 'images/k.jpg' %}");
-        background-size: 20%; /* 배경 이미지를 화면에 맞게 조절합니다. */
-        background-repeat: repeat;
-        background-position: center; /* 배경 이미지를 가운데 정렬합니다. */
-    }
-</style>
+</div> 
 {% endblock %}
