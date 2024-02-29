@@ -1,26 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block body %}
-    <div style="text-align: center; margin-top: 80px;">
-        <h1 style="margin-bottom: 35px; font-size: 45px;" class="ONE-Mobile-POP">선호하는 여행 기간은?</h1>
+    <div style="text-align: center; margin-top: 40px;">
+        <h1 style="margin-bottom: 20px; font-size: 45px; font-weight: bold;" class="Dovemayo_gothic">여행 계획을 짜는 중입니다! 여행 계획이 어떻게 되세요?</h1>
+        <!-- <img style='width: 350px;' src = "{% static 'images/cat.jpg' %}"> -->
         <form method="POST">
             {% csrf_token %}
-            <div  class="d-grid gap-2 col-6 mx-auto">
-            <button type="submit" name="style2" value="0" class = "btn btn-light border border-primary border-3 Black_Han_Sans" style="font-size: 24px;">여행은 무조건 <span class="highlight">숙박</span>이지!</button>
-            <button type="submit" name="style2" value="1" class = "btn btn-light border border-primary border-3 Black_Han_Sans" style="font-size: 24px;">알찬 <span class="highlight2">당일치기</span>도 좋아!</button>
+            <div  class="d-grid gap-2 col-4 mx-auto" id="fontDiv">
+            <button type="submit" name="style2" value="0" class="btn btn-light border border-secondary border-3 Dovemayo_gothic" style="font-size: 24px; font-weight: bold;">여행은 무조건 <span class="highlight">숙박</span>이지!</button>
+            <button type="submit" name="style2" value="1" class="btn btn-light border border-secondary border-3 Dovemayo_gothic" style="font-size: 24px; font-weight: bold;">알찬 <span class="highlight2">당일</span>치기도 좋아!</button>
             </div>
         </form>
-    </div>
-    <style>
-    .highlight {
-        color: rgb(99, 183, 14); /* 받기 텍스트를 초록색으로 설정합니다. */
-        font-weight: bold;
-        font-size: 30px;
-    }
-    .highlight2 {
-        color: rgb(94, 14, 199); /* 받기 텍스트를 초록색으로 설정합니다. */
-        font-weight: bold;
-        font-size: 30px;
-    }
-</style>
+    </div>    
 {% endblock %}
