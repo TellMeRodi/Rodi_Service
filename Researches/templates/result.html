@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block body %}
+
     <h1>추천 결과</h1>
     {% if recommendations %}
     <h2>당신에게 추천하는 도시는 다음과 같습니다:</h2>
@@ -18,3 +19,5 @@
     {% endif %}
 
 {% endblock %}
+
+

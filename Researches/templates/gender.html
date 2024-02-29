@@ -1,10 +1,25 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block body %}
-    <h1>성별</h1>
-    <form method="POST">
-        {% csrf_token %}
-        <button type="submit" name="gender" value="0">남자</button>
-        <button type="submit" name="gender" value="1">여자</button>
-    </form>
+    <div style="text-align: center; margin-top: 80px;">
+        <h1 style="margin-bottom: 35px; font-size: 45px;" class="Black_Han_Sans">성별이 무엇인가요?</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <div  class="d-grid gap-2 col-6 mx-auto">
+            <button type="submit" name="gender" value="0" class="btn btn-primary" style="font-size: 19px;">남자 
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gender-male" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M9.5 2a.5.5 0 0 1 0-1h5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-1 0V2.707L9.871 6.836a5 5 0 1 1-.707-.707L13.293 2zM6 6a4 4 0 1 0 0 8 4 4 0 0 0 0-8"/>
+                </svg>
+            </button>
+        
+            <button type="submit" name="gender" value="1" class="btn btn-danger" style="font-size: 19px;">여자 
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gender-female" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 1a4 4 0 1 0 0 8 4 4 0 0 0 0-8M3 5a5 5 0 1 1 5.5 4.975V12h2a.5.5 0 0 1 0 1h-2v2.5a.5.5 0 0 1-1 0V13h-2a.5.5 0 0 1 0-1h2V9.975A5 5 0 0 1 3 5"/>
+                </svg>
+            </button>
+            </div>
+        </form>
+    </div>
+    
+    
 {% endblock %}

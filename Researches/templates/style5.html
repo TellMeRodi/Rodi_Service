@@ -1,10 +1,17 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block body %}
-    <h1>여행스타일5</h1>
+<div style="text-align: center; margin-top: 80px;">
+    <h1 style="margin-bottom: 35px; font-size: 45px;" class="Black_Han_Sans">여행가서 가장 하고 싶은것은..</h1>
     <form method="POST">
         {% csrf_token %}
-        <button type="submit" name="style5" value="0">스타일A</button>
-        <button type="submit" name="style5" value="1">스타일B</button>
+        <div  class="d-grid gap-2 col-6 mx-auto">
+        <button type="submit" name="style5" value="0" class ="btn btn-warning" style="font-size: 19px;">충전을 위한 휴양,휴식!</button>
+        <button type="submit" name="style5" value="1" class="btn btn-success" style="font-size: 19px;">일상에선 경험하지 못하는 다양한 체험,액티비티!</button>
+        </div>
     </form>
+</div>
+<style>
+    
+</style>
 {% endblock %}
