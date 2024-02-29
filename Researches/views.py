@@ -76,7 +76,7 @@ def MBTI_JP(request):
             style8=request.session['style8'],
             MBTI=MBTI,
         )
-        return redirect('Researches:recommendations')
+        return redirect('Researches:surveyend')
     return render(request, 'MBTI_JP.html')
 
 def definite_data(session):
@@ -101,6 +101,11 @@ def definite_data(session):
         'MBTI': MBTI,
     }
     return data
+
+def surveyend(request):
+    if request.method == 'POST':
+        return redirect('Researches:recommendations')
+    return render(request, 'surveyend.html')
 
 def get_recommendations(request):
     data = definite_data(request.session)
