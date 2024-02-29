@@ -1,17 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block body %}
-<div style="text-align: center; margin-top: 80px;">
-    <h1 style="margin-bottom: 35px; font-size: 45px;" class="Black_Han_Sans">여행가서 가장 하고 싶은것은..</h1>
+<div style="text-align: center; margin-top: 40px;">
+    <h1 style="margin-bottom: 20px; font-size: 45px; font-weight: bold;" class="Dovemayo_gothic">짐 정리 끝! 아 근데 여기 왜 왔더라?</h1>
+    <!-- <img style='width: 350px;' src = "{% static 'images/cat.jpg' %}"> -->
     <form method="POST">
         {% csrf_token %}
-        <div  class="d-grid gap-2 col-6 mx-auto">
-        <button type="submit" name="style5" value="0" class ="btn btn-warning" style="font-size: 19px;">충전을 위한 휴양,휴식!</button>
-        <button type="submit" name="style5" value="1" class="btn btn-success" style="font-size: 19px;">일상에선 경험하지 못하는 다양한 체험,액티비티!</button>
+        <div  class="d-grid gap-2 col-4 mx-auto" id="fontDiv">
+        <button type="submit" name="style5" value="0" class="btn btn-light border border-secondary border-3 Dovemayo_gothic" style="font-size: 24px; font-weight: bold;">요즘 너무 바빴어, <span class="highlight">힐링</span>하면서 충전하자! 🌴</button>
+        <button type="submit" name="style5" value="1" class="btn btn-light border border-secondary border-3 Dovemayo_gothic" style="font-size: 24px; font-weight: bold;">평상시에 못해본 패러글라이딩, 서핑 같은 <span class="highlight2">액티비티</span>를 해야지! 🏄‍♂️</button>
         </div>
     </form>
-</div>
-<style>
-    
-</style>
+</div>  
 {% endblock %}

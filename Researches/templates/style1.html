@@ -1,29 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block body %}
-<div style="text-align: center; margin-top: 40px;">
-    <h1 style="margin-bottom: 20px; font-size: 45px;" class="Black_Han_Sans">나는 어디를 더 선호할까?</h1>
-    <img style='width: 350px;' src = "{% static 'images/cat.jpg' %}">
-    <form method="POST">
-        {% csrf_token %}
-        <div  class="d-grid gap-2 col-4 mx-auto" id="fontDiv">
-        <button type="submit" name="style1" value="0" class = "btn btn-light border border-primary border-3 Black_Han_Sans" style="font-size: 24px;">조용하고 휴식을 만끽하는 <span class="highlight">자연</span></button>
-        <button type="submit" name="style1" value="1" class="btn btn-light border border-primary border-3 Black_Han_Sans" style="font-size: 24px;">놀거리가 다양하고 다이나믹한 <span class="highlight2">도시</span></button>
-        </div>
-    </form>
-</div>
-<style>
-.highlight {
-            color: rgb(34, 13, 224); /* 받기 텍스트를 초록색으로 설정합니다. */
-            font-weight: bold;
-            font-size: 30px;
-        }
-.highlight2 {
-            color: rgb(213, 12, 12); /* 받기 텍스트를 초록색으로 설정합니다. */
-            font-weight: bold;
-            font-size: 30px;
-        }
-
-
-</style>
+    <div style="text-align: center; margin-top: 40px;">
+        <h1 style="margin-bottom: 20px; font-size: 45px; font-weight: bold;" class="Dovemayo_gothic">여행지에 도착한 당신! 당신의 눈 앞에 보이는 풍경은 무엇인가요?</h1>
+        <img style='width: 350px;' src = "{% static 'images/cat.jpg' %}">
+        <form method="POST">
+            {% csrf_token %}
+            <div  class="d-grid gap-2 col-4 mx-auto" id="fontDiv">
+            <button type="submit" name="style1" value="0" class="btn btn-light border border-secondary border-3 Dovemayo_gothic" style="font-size: 24px; font-weight: bold;">사람이 적은 평화로운 <span class="highlight">자연</span>🏞️</button>
+            <button type="submit" name="style1" value="1" class="btn btn-light border border-secondary border-3 Dovemayo_gothic" style="font-size: 24px; font-weight: bold;">활기찬 분위기가 가득한 <span class="highlight2">도심 </span>거리 🍜</button>
+            </div>
+        </form>
+    </div>
 {% endblock %}
