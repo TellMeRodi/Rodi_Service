@@ -1,10 +1,17 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block body %}
-    <h1>여행스타일4</h1>
+<div style="text-align: center; margin-top: 80px;">
+    <h1 style="margin-bottom: 35px; font-size: 45px;" class="Black_Han_Sans">숙소를 선정할 때는..</h1>
     <form method="POST">
         {% csrf_token %}
-        <button type="submit" name="style4" value="0">스타일A</button>
-        <button type="submit" name="style4" value="1">스타일B</button>
+        <div  class="d-grid gap-2 col-6 mx-auto">
+        <button type="submit" name="style4" value="0" class ="btn btn-warning" style="font-size: 19px;">호캉스 선호! 비싸지만 시설 좋은 곳</button>
+        <button type="submit" name="style4" value="1" class="btn btn-success" style="font-size: 19px;">잠만 자면 그만! 게스트하우스도 좋아!</button>
+        </div>
     </form>
+</div>
+<style>
+    
+</style>
 {% endblock %}

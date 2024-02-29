@@ -1,6 +1,24 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block body %}
-    <h1>Home</h1>
-    <a href="{% url 'Researches:gender' %}">여행지 추천</a>
+    <div class="container d-flex flex-column align-items-center">
+        <div class="mb-3">
+            <h1 class="Protest_Riot" style="margin-top: 50px; margin-bottom: 80px; font-size: 88px;">Tell me Rodi!</h1>
+            <div style="position: relative; margin-top: 100px;">
+            <a href="{% url 'Researches:gender' %}" class="btn btn-primary" style="font-size: 22px; padding: 10px 20px; margin-left: 100px;">여행지 추천 받기>></a>
+        </div>
+        </div>
+    </div>
+    <style>
+        body {
+            background-image: url("{% static 'images/sea.png' %}");
+            background-size: 100% 170%;
+            background-repeat: no-repeat;
+            background-position: top;
+        }
+        .Protest_Riot {
+        color: rgb(12, 12, 12); 
+        }
+
+    </style>
 {% endblock %}

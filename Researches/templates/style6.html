@@ -1,10 +1,17 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block body %}
-    <h1>여행스타일6</h1>
+<div style="text-align: center; margin-top: 80px;">
+    <h1 style="margin-bottom: 35px; font-size: 45px;" class="Black_Han_Sans">내가 가는 여행지는..</h1>
     <form method="POST">
         {% csrf_token %}
-        <button type="submit" name="style6" value="0">스타일A</button>
-        <button type="submit" name="style6" value="1">스타일B</button>
+        <div  class="d-grid gap-2 col-6 mx-auto">
+        <button type="submit" name="style6" value="0" class ="btn btn-warning" style="font-size: 19px;">잘 알려지지 않은 곳</button>
+        <button type="submit" name="style6" value="1" class="btn btn-success" style="font-size: 19px;">여행지로 잘 알려진 곳</button>
+        </div>
     </form>
+</div>
+<style>
+    
+</style>
 {% endblock %}
