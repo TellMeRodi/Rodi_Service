@@ -1,21 +1,18 @@
-
-
 {% extends 'base.html' %}
 {% load static %}
 {% block body %}
     <div style="text-align: center; margin-top: 80px;">
-        <h1 style="margin-bottom: 35px; font-size: 45px;" class="Black_Han_Sans">연령대가 어떻게 되나요?</h1>
+        <h1 style="margin-bottom: 35px; font-size: 45px;" class="Dovemayo_gothic">연령대가 어떻게 되나요?</h1>
         <form method="POST">
             {% csrf_token %}
             <div  class="d-grid gap-2 col-6 mx-auto">
-            <button type="submit" name="age" value="1" class="btn btn-dark" style="font-size: 19px;">10대</button>
-            <button type="submit" name="age" value="2" class="btn btn-dark" style="font-size: 19px;">20대</button>
-            <button type="submit" name="age" value="3" class="btn btn-dark" style="font-size: 19px;">30대</button>
-            <button type="submit" name="age" value="4" class="btn btn-dark" style="font-size: 19px;">40대</button>
-            <button type="submit" name="age" value="5" class="btn btn-dark" style="font-size: 19px;">50대</button>
-            <button type="submit" name="age" value="6" class="btn btn-dark" style="font-size: 19px;">60대 이상</button>
+            <button type="submit" name="age" value="1" class="btn btn-dark Dovemayo_gothic" style="font-size: 19px;">10대</button>
+            <button type="submit" name="age" value="2" class="btn btn-dark Dovemayo_gothic" style="font-size: 19px;">20대</button>
+            <button type="submit" name="age" value="3" class="btn btn-dark Dovemayo_gothic" style="font-size: 19px;">30대</button>
+            <button type="submit" name="age" value="4" class="btn btn-dark Dovemayo_gothic" style="font-size: 19px;">40대</button>
+            <button type="submit" name="age" value="5" class="btn btn-dark Dovemayo_gothic" style="font-size: 19px;">50대</button>
+            <button type="submit" name="age" value="6" class="btn btn-dark Dovemayo_gothic" style="font-size: 19px;">60대 이상</button>
             </div>
         </form>
     </div> 
-   
 {% endblock %}
