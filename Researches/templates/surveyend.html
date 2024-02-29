@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    설문이 완료되었습니다. 결과를 확인하시려면 아래 버튼을 클릭하세요.
+    <form id="surveyend" method="POST" action="{% url 'Researches:surveyend' %}">
+        {% csrf_token %}
+        <button type="submit" onclick="recommendations()">설문결과확인</button>
+    </form>
+
+    <div id="loading-message" style="display: none;">로딩 중...</div>
+
+    <script>
+        function recommendations() {
+            // 버튼 비활성화
+            var button = document.getElementById('surveyend').querySelector('button');
+            button.disabled = true;
+
+            // 로딩 메시지 표시
+            var loadingMessage = document.getElementById('loading-message');
+            loadingMessage.style.display = 'block';
+
+            // 'result.html'로 페이지 이동
+            setTimeout(function() {
+                window.location.href = '{% url "Researches:recommendations" %}';
+            }); 
+        }
+    </script>
+{% endblock %}
