@@ -3,16 +3,15 @@
 {% block body %}
     <div class="container d-flex flex-column align-items-center">
         <div class="mb-3">
-            <h1 class="Protest_Riot" style="margin-top: 50px; margin-bottom: 80px; font-size: 88px;">Tell me Rodi!</h1>
-            <div style="position: relative; margin-top: 100px;">
-            <a href="{% url 'Researches:gender' %}" class="btn btn-primary" style="font-size: 22px; padding: 10px 20px; margin-left: 100px;">여행지 추천 받기>></a>
-        </div>
+            <div class="position: relative">
+                <a href="{% url 'Researches:gender' %}" class="btn Dovemayo_gothic" style="font-size: 24px; font-weight: bold;">여행지 추천 받기>></a>
+            </div>
         </div>
     </div>
     <style>
         body {
-            background-image: url("{% static 'images/sea.png' %}");
-            background-size: 100% 170%;
+            background-image: url("{% static 'images/Rodi.png' %}");
+            background-size: cover;
             background-repeat: no-repeat;
             background-position: top;
         }
