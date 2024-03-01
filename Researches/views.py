@@ -6,20 +6,6 @@ import requests
 def home(request):
     return render(request, 'home.html')
 
-def gender(request):
-    if request.method == 'POST':
-        gender = request.POST.get('gender')
-        request.session['gender'] = gender
-        return redirect('Researches:age')
-    return render(request, 'gender.html')
-
-def age(request):
-    if request.method == 'POST':
-        age = request.POST.get('age')
-        request.session['age'] = age
-        return redirect('Researches:style2')
-    return render(request, 'age.html')
-
 def style2(request):
     if request.method == 'POST':
         style2 = request.POST.get('style2')
@@ -101,15 +87,30 @@ def MBTI_JP(request):
     if request.method == 'POST':
         MBTI_JP = request.POST.get('MBTI_JP')
         request.session['MBTI_JP'] = MBTI_JP
+        return redirect('Researches:gender')
+    return render(request, 'MBTI_JP.html')
+
+def gender(request):
+    if request.method == 'POST':
+        gender = request.POST.get('gender')
+        request.session['gender'] = gender
+        return redirect('Researches:age')
+    return render(request, 'gender.html')
+
+def age(request):
+    if request.method == 'POST':
+        age = request.POST.get('age')
+        request.session['age'] = age
 
         MBTI_EI = request.session['MBTI_EI']
         MBTI_SN = request.session['MBTI_SN']
         MBTI_FT = request.session['MBTI_FT']
+        MBTI_JP = request.session['MBTI_JP']
 
         MBTI=MBTI_EI + MBTI_SN + MBTI_FT + MBTI_JP
         
         Question.objects.create(
-            age=request.session['age'],
+            age=age,
             gender=request.session['gender'],
             style1=request.session['style1'],
             style2=request.session['style2'],
@@ -122,7 +123,7 @@ def MBTI_JP(request):
             MBTI=MBTI,
         )
         return redirect('Researches:surveyend')
-    return render(request, 'MBTI_JP.html')
+    return render(request, 'age.html')
 
 def definite_data(session):
     MBTI_EI = session.get('MBTI_EI')
