@@ -23,7 +23,6 @@ def generate_MBTI_list(MBTI):
     if MBTI_prefix in MBTI_list:
         index = MBTI_list.index(MBTI_prefix)
         result_list[index] = 1  # 해당 MBTI에 대응하는 인덱스에 1을 할당
-
     return result_list
 
 # 코사인 유사도 계산
@@ -42,8 +41,7 @@ def get_user_preference(top_similar_ids, preference_df):
     # 상위 유사 사용자들의 선호 여행지 중 타겟 사용자의 선호 여행지와 겹치지 않는 것만 추출
     recommended_cities_list = []
     for _, row in similar_users_cities.iterrows():
-        recommended_cities_list.append(row[['TRAVEL_LIKE_SIDOGUNGU_1', 'TRAVEL_LIKE_SIDOGUNGU_2', 'TRAVEL_LIKE_SIDOGUNGU_3']].tolist())
-
+        recommended_cities_list.append(row[['선호여행1', '선호여행2', '선호여행3']].tolist())
     # 중복된 여행지를 제거하고 추천 여행지 리스트 반환
     return list(set(np.array(recommended_cities_list).flatten().tolist()))
 
@@ -118,7 +116,7 @@ def find_most_common_type(data, recommended_cities):
       'SLE': ['광양시', '광주광역시', '부산광역시', '서울특별시', '대구광역시', '제천시', '청주시', '포항시'],
       'SLR': ['부산광역시', '공주시', '경주시', '논산시', '당진시', '밀양시', '사천시', '서울특별시', '수원시', '순천시', '안동시', '익산시', '전주시', '영천시', '울산광역시', '의왕시', '정읍시'],
       'SLC': ['강릉시', '거제시', '경산시', '광주광역시', '서울특별시', '구미시', '군산시', '김천시', '대구광역시', '대전광역시', '목포시', '부산광역시', '세종시', '양산시', '영주시', '고양시', '울산광역시', '창원시'],
-      'SLP': ['광명시', '창원시', '서귀포시', '인천광역시', '여수시', '용인시', '대전광역시', '이천시', '제주시', '춘천시', '충주시', '통영시', '부산광역시'],
+      'SLP': ['광명시', '창원시', '제주특별자치도', '인천광역시', '여수시', '용인시', '대전광역시', '이천시', '춘천시', '충주시', '통영시', '부산광역시'],
       'SSE': ['광주광역시', '나주시', '대전광역시', '서울특별시', '인천광역시', '안양시', '울산광역시', '고양시', '의정부시', '창원시', '천안시', '청주시', '하남시'],
       'SSR': ['고양시', '서산시', '아산시', '양주시', '울산광역시', '진주시', '칠곡군', '포항시'],
       'SSC': ['서울특별시', '광주광역시', '구리시', '군포시', '부산광역시', '대구광역시', '대전광역시', '수원시', '안산시', '안양시', '양평군', '용인시', '원주시', '인천광역시', '전주시', '창원시', '천안시', '청주시'],
@@ -142,10 +140,10 @@ def find_most_common_type(data, recommended_cities):
     max_category =[k for k,v in category_counts.items() if max(category_counts.values()) == v]
     # 만약 가까운 관광유형이 2개 이상 나온다면 MBTI와 관광유형을 연결한 df(distance_df)를 이용하여 관광유형 찾기
     if len(max_category)>1:
-        most_closet_types = distance_df['TSR'].loc[distance_df.index.isin(max_category)].sort_values().index[0]
+        most_closet_types = distance_df[mbti_based_type].loc[distance_df.index.isin(max_category)].sort_values().index[0]
         return most_closet_types
     else:
-        return max_category
+        return max_category[0]
     
 def find_most_common_type_and_cities(data, recommended_cities):
     matrics_20={
@@ -156,7 +154,7 @@ def find_most_common_type_and_cities(data, recommended_cities):
         'SLE': ['광양시', '광주광역시', '부산광역시', '서울특별시', '대구광역시', '제천시', '청주시', '포항시'],
         'SLR': ['부산광역시', '공주시', '경주시', '논산시', '당진시', '밀양시', '사천시', '서울특별시', '수원시', '순천시', '안동시', '익산시', '전주시', '영천시', '울산광역시', '의왕시', '정읍시'],
         'SLC': ['강릉시', '거제시', '경산시', '광주광역시', '서울특별시', '구미시', '군산시', '김천시', '대구광역시', '대전광역시', '목포시', '부산광역시', '세종시', '양산시', '영주시', '고양시', '울산광역시', '창원시'],
-        'SLP': ['광명시', '창원시', '서귀포시', '인천광역시', '여수시', '용인시', '대전광역시', '이천시', '제주시', '춘천시', '충주시', '통영시', '부산광역시'],
+        'SLP': ['광명시', '창원시', '제주특별자치도', '인천광역시', '여수시', '용인시', '대전광역시', '이천시', '춘천시', '충주시', '통영시', '부산광역시'],
         'SSE': ['광주광역시', '나주시', '대전광역시', '서울특별시', '인천광역시', '안양시', '울산광역시', '고양시', '의정부시', '창원시', '천안시', '청주시', '하남시'],
         'SSR': ['고양시', '서산시', '아산시', '양주시', '울산광역시', '진주시', '칠곡군', '포항시'],
         'SSC': ['서울특별시', '광주광역시', '구리시', '군포시', '부산광역시', '대구광역시', '대전광역시', '수원시', '안산시', '안양시', '양평군', '용인시', '원주시', '인천광역시', '전주시', '창원시', '천안시', '청주시'],
@@ -171,7 +169,7 @@ def find_most_common_type_and_cities(data, recommended_cities):
         'TSP': ['인천광역시', '인제군', '홍천군']
     }
     # 사용자의 관광유형 타입
-    traveler_type = find_most_common_type(data, recommended_cities)[0]
+    traveler_type = find_most_common_type(data, recommended_cities)
     # 관광유형타입 중 도시 3개만 출력
     traveler_type_cities = matrics_20[traveler_type][:2]
     return traveler_type, traveler_type_cities
