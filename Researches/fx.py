@@ -63,9 +63,6 @@ def recommend_for_user(rawdata, traveler_df, like_city_df):
     top_5_ids = top_5_similar_ids.values
     # get_user_preference 함수사용,
     recommended_cities = get_user_preference(top_5_ids, like_city_df)
-    # 테스트용
-
-    print(recommended_cities)
     # 결과 반환
     return recommended_cities
 
@@ -177,6 +174,4 @@ def find_most_common_type_and_cities(data, recommended_cities):
     traveler_type = find_most_common_type(data, recommended_cities)[0]
     # 관광유형타입 중 도시 3개만 출력
     traveler_type_cities = matrics_20[traveler_type][:2]
-    print(traveler_type_cities)
-    print(traveler_type)
     return traveler_type, traveler_type_cities
