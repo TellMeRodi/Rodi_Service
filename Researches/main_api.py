@@ -31,6 +31,9 @@ async def get_recommendations(request: Request):
         # 요청 본문을 JSON으로 파싱
         data = await request.json()
         recommended_cities = recommend_for_user(data, traveler, like_city)
-        return {"recommended_cities": recommended_cities}
+        traveler_type, traveler_type_cities = find_most_common_type_and_cities(data, recommended_cities)
+        return {"recommended_cities": recommended_cities,
+                "traveler_type": traveler_type, 
+                "traveler_type_cities": traveler_type_cities}
     except ValueError as e:
         raise HTTPException(status_code=404, detail=f"JSON 파싱 오류: {str(e)}")
