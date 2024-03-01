@@ -163,8 +163,12 @@ def get_recommendations(request):
     
     # FastAPI의 응답 처리
     if response.status_code == 200:
-        recommendations = response.json().get('recommended_cities', [])
-        context = {'recommendations': recommendations}
+        recommended_cities = response.json().get('recommended_cities', [])
+        traveler_type = response.json().get('traveler_type', [])
+        traveler_type_cities = response.json().get('traveler_type_cities', [])
+        context = {'recommended_cities': recommended_cities,
+                   'traveler_type': traveler_type, 
+                   'traveler_type_cities': traveler_type_cities}
     else:
         context = {'error': 'API 호출에 실패했습니다.'}
 
