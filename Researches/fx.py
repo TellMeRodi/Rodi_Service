@@ -171,5 +171,5 @@ def find_most_common_type_and_cities(data, recommended_cities):
     # 사용자의 관광유형 타입
     traveler_type = find_most_common_type(data, recommended_cities)
     # 관광유형타입 중 도시 3개만 출력
-    traveler_type_cities = [city for city in cities_list if city in matrics_20[traveler_type]][:2]
+    traveler_type_cities = [city for city in recommended_cities if city in matrics_20[traveler_type]][:2]
     return traveler_type, traveler_type_cities
