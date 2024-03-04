@@ -1,10 +1,18 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block body %}
-    <h1>여행스타일3</h1>
-    <form method="POST">
-        {% csrf_token %}
-        <button type="submit" name="style3" value="0">스타일A</button>
-        <button type="submit" name="style3" value="1">스타일B</button>
-    </form>
+    <div style="text-align: center; margin-top: 40px;">
+        <h1 style="margin-bottom: 20px; font-size: 45px; font-weight: bold;" class="Dovemayo_gothic">
+            여행가방을 싸고 있는 당신! <br>
+            어디로 가고싶나요?
+        </h1>
+        <img style='width: 350px;' src = "{% static 'images/style3.jpg' %}">
+        <form method="POST">
+            {% csrf_token %}
+            <div  class="d-grid gap-2 col-4 mx-auto" id="fontDiv">
+                <button type="submit" name="style3" value="0" class="btn btn-light border border-secondary border-3 Dovemayo_gothic" style="font-size: 24px; font-weight: bold;">새로운 경험을 할 수 있는 <span class="highlight">새로운 </span>지역 🌈</button>
+                <button type="submit" name="style3" value="1" class="btn btn-light border border-secondary border-3 Dovemayo_gothic" style="font-size: 24px; font-weight: bold;">그곳의 매력을 다시 느끼는 <span class="highlight2">익숙한 </span>지역 🏠</button>
+            </div>
+        </form>
+    </div>  
 {% endblock %}

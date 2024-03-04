@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+    <div style="text-align: center; margin-top: 40px;">
+        <h1 class="Dovemayo_gothic" style="margin-bottom: 20px; font-size: 45px; font-weight: bold;">설문이 완료되었습니다 😆 </h1>
+        <img style='width: 350px;' src = "{% static 'images/surveyend.png' %}">
+        <form id="surveyend" method="POST" action="{% url 'Researches:surveyend' %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-light border border-secondary border-3 Dovemayo_gothic" style="font-size: 24px; font-weight: bold;" onclick="recommendations()">설문결과확인</button>
+        </form>
+
+        <div id="loading-message" style="display: none; margin-bottom: 20px; font-size: 20px; font-weight: bold;" class="Dovemayo_gothic">로딩 중...</div>
+    </div>
+
+    <script>
+    function recommendations() {
+        // 버튼 비활성화
+        var button = document.getElementById('surveyend').querySelector('button');
+        button.disabled = true;
+
+        // 로딩 메시지 표시
+        var loadingMessage = document.getElementById('loading-message');
+        loadingMessage.style.display = 'block';
+
+        // 'result.html'로 페이지 이동
+        setTimeout(function() {
+            window.location.href = '{% url "Researches:recommendations" %}';
+        }); 
+    }
+</script>
+{% endblock %}

@@ -1,6 +1,24 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block body %}
-    <h1>Home</h1>
-    <a href="{% url 'Researches:gender' %}">여행지 추천</a>
+    <div class="container d-flex flex-column align-items-center">
+        <div class="mb-3">
+            <div class="position: relative">
+                <a href="{% url 'Researches:style2' %}" class="btn Dovemayo_gothic border border-dark border-3" style="font-size: 24px; font-weight: bold; margin-top: 40%">여행지 추천 받기>></a>
+            </div>
+        </div>
+    </div>
+    
+    <style>
+        body {
+            background-image: url("{% static 'images/home.png' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: top;
+        }
+        
+        .Protest_Riot {
+        color: rgb(12, 12, 12); 
+        }
+    </style>
 {% endblock %}
