@@ -13,10 +13,8 @@
             {% endfor %}
             <br>
             <h3 style="margin-bottom: 20px; font-size: 35px; font-weight: bold;">그 외 당신의 성향과 맞는 여행지는</h3>
-            {% for city in recommended_cities %}
-                {% if city not in traveler_type_cities %}
-                    <h3>{{ city }}</h3>
-                {% endif %}
+            {% for city2 in recommended_cities %}
+                <h3>{{ city2 }}</h3>
             {% endfor %}
         </ul>
     {% else %}
