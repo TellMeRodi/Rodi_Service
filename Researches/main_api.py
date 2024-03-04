@@ -31,7 +31,8 @@ async def get_recommendations(request: Request):
         data = await request.json()
         recommended_cities = recommend_for_user(data, traveler, like_city)
         traveler_type, traveler_type_cities = find_most_common_type_and_cities(data, recommended_cities)
-        return {"recommended_cities": recommended_cities,
+        additional_recommended_cities = [recommended_city for recommended_city in recommended_cities if recommended_city not in traveler_type_cities][:2]
+        return {"recommended_cities": additional_recommended_cities,
                 "traveler_type": traveler_type, 
                 "traveler_type_cities": traveler_type_cities}
     except ValueError as e:
