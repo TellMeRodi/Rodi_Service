@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Question
 import requests
+from . import matrics_describe
 
 # Create your views here.
 def home(request):
@@ -166,9 +167,13 @@ def get_recommendations(request):
         recommended_cities = response.json().get('recommended_cities', [])
         traveler_type = response.json().get('traveler_type', [])
         traveler_type_cities = response.json().get('traveler_type_cities', [])
+        matrics_des = matrics_describe.matrics_des
         context = {'recommended_cities': recommended_cities,
                    'traveler_type': traveler_type, 
-                   'traveler_type_cities': traveler_type_cities}
+                   'traveler_type_cities': traveler_type_cities,
+                   'type_photo': matrics_des[traveler_type]['photo'],
+                   'type_keyword': matrics_des[traveler_type]['keyword'],
+                   'type_descr': matrics_des[traveler_type]['describe'],}
     else:
         context = {'error': 'API 호출에 실패했습니다.'}
 
