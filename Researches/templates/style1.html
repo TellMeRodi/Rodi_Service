@@ -4,14 +4,14 @@
     <div style="text-align: center; margin-top: 40px;">
         <h1 class="question Dovemayo_gothic">
             여행지에 도착한 당신! <br>
-            당신의 눈 앞에 보이는 풍경은 무엇인가요?
+            눈 앞에 보이는 풍경은 무엇인가요?
         </h1>
         <img class="survey-image" src = "{% static 'images/style1.png' %}">
         <form method="POST">
             {% csrf_token %}
-            <div  class="d-grid gap-2 col-4 mx-auto" id="fontDiv">
-                <button type="submit" name="style1" value="0" class="btn Dovemayo_gothic answer">사람이 적은 평화로운 <span class="highlight">자연 </span>🏞️</button>
-                <button type="submit" name="style1" value="1" class="btn Dovemayo_gothic answer">활기찬 분위기가 가득한 <span class="highlight2">도심 </span>거리 🍜</button>
+            <div id="fontDiv">
+                <button type="submit" name="style1" value="0" class="btn Dovemayo_gothic answer">사람이 적은<br>평화로운 <span class="highlight">자연 </span>🏞️</button><br>
+                <button type="submit" name="style1" value="1" class="btn Dovemayo_gothic answer">활기찬 분위기가<br>가득한 <span class="highlight2">도심 </span>거리 🍜</button>
             </div>
         </form>
     </div>

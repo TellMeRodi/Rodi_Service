@@ -9,9 +9,9 @@
         <img class="survey-image" src = "{% static 'images/style7.png' %}">
         <form method="POST">
             {% csrf_token %}
-            <div  class="d-grid gap-2 col-4 mx-auto" id="fontDiv">
-                <button type="submit" name="style7" value="0" class="btn Dovemayo_gothic answer">계획에 차질이 생겼어! <br><span class="highlight">계획을 전면 수정한다</span></button>
-                <button type="submit" name="style7" value="1" class="btn Dovemayo_gothic answer"><span class="highlight2">오히려 좋아! </span>놓친 김에 주변에서 더 논다</button>
+            <div id="fontDiv">
+                <button type="submit" name="style7" value="0" class="btn Dovemayo_gothic answer">계획에 차질이 생겼어! <br><span class="highlight">계획을 전면 수정한다</span></button><br>
+                <button type="submit" name="style7" value="1" class="btn Dovemayo_gothic answer"><span class="highlight2">오히려 좋아! </span>놓친 김에<br>주변에서 더 논다</button>
             </div>
         </form>
     </div> 

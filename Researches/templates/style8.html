@@ -3,15 +3,15 @@
 {% block body %}
     <div style="text-align: center; margin-top: 40px;">
         <h1 class="question Dovemayo_gothic">
-            신나게 여행 중, 주변에서 사진을 열심히 찍고 있다! <br>
+            주변에서 사진을 열심히 찍고 있다! <br>
             당신이 든 생각은?
         </h1>
         <img class="survey-image" src = "{% static 'images/style8.png' %}">
         <form method="POST">
             {% csrf_token %}
-            <div  class="d-grid gap-2 col-4 mx-auto" id="fontDiv">
-                <button type="submit" name="style8" value="0" class="btn Dovemayo_gothic answer">어?! 나도 사진 찍어야 돼! <span class="highlight">카메라를 든다</span></button>
-                <button type="submit" name="style8" value="1" class="btn Dovemayo_gothic answer">이 순간은 사진에 담기지 못해!<br> <span class="highlight2">몸으로 느낀다</span></button>
+            <div id="fontDiv">
+                <button type="submit" name="style8" value="0" class="btn Dovemayo_gothic answer">어?! 나도 사진 찍어야 돼!<br><span class="highlight">카메라를 든다</span></button><br>
+                <button type="submit" name="style8" value="1" class="btn Dovemayo_gothic answer">이 순간은 사진에 담기지 못해!<br><span class="highlight2">몸으로 느낀다</span></button>
             </div>
         </form>
     </div>  

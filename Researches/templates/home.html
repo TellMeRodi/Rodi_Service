@@ -1,20 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block body %}
-    <div class="container d-flex flex-column align-items-center">
-        <div class="mb-3">
-            <div class="position: relative">
-                <a href="{% url 'Researches:style2' %}" class="btn Dovemayo_gothic border border-dark border-3" style="font-size: 1.5vw; font-weight: bold; position: fixed; top:20%; left:50%; transform:translate(-50%, -50%);">여행지 추천 받기>></a>
-            </div>
-        </div>
-    </div>
+    <div style="text-align: center; margin-top: 220px;">
+        <a href="{% url 'Researches:style2' %}" class="btn Dovemayo_gothic border border-dark border-3" style="font-size: 15px; font-weight: bold;">여행지 추천 받기>></a>
+    </div>    
     
     <style>
         body {
-            background-image: url("{% static 'images/home.png' %}");
-            background-size: cover;
+            background-image: url("{% static 'images/home.jpeg' %}");
+            background-size: 768px;
             background-repeat: no-repeat;
-            background-position: top;
+            background-position: center center;
+            background-attachment: fixed;
         }
         
         .Protest_Riot {

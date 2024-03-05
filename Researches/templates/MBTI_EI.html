@@ -5,12 +5,12 @@
         <h1 class="question Dovemayo_gothic">
             여행은 말이지..
         </h1>
-        <img class="survey-image" src = "{% static 'images/EI.jpeg' %}">
+        <img class="survey-image" src = "{% static 'images/EI.png' %}">
         <form method="POST">
             {% csrf_token %}
-            <div  class="d-grid gap-2 col-4 mx-auto" id="fontDiv">
-                <button type="submit" name="MBTI_EI" value="E" class="btn Dovemayo_gothic answer"><span class="highlight">E </span>가족, 친구와 함께<br> 왁자지껄한 여행이 좋아!</button>
-                <button type="submit" name="MBTI_EI" value="I" class="btn Dovemayo_gothic answer"><span class="highlight2">I </span>이미 혼자 있지만 더욱 혼자 있고<br>싶을 때가는 게 여행이지</button>
+            <div id="fontDiv">
+                <button type="submit" name="MBTI_EI" value="E" class="btn Dovemayo_gothic answer"><span class="highlight">E </span>가족, 친구와 함께<br> 왁자지껄한 여행이 좋아!</button><br>
+                <button type="submit" name="MBTI_EI" value="I" class="btn Dovemayo_gothic answer"><span class="highlight2">I </span>이미 혼자 있지만 더욱 혼자 있고<br>싶을 때 가는 게 여행이지</button>
             </div>
         </form>
     </div> 
