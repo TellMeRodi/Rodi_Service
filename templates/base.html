@@ -17,19 +17,40 @@
             background-color: #DDF4FF;
         }
 
+        .home-button {
+            border-color:black; 
+            border-width: 3px;
+        }
+
+        .home-button:hover {
+            border-color: gray;
+            border-width: 3px;
+            background-color: rgb(213, 213, 213);
+        }
+
         .question {
             margin-bottom: 20px;
-            font-size: 35px;
+            font-size: 27px;
             font-weight: bold;
+            object-fit: cover;
+            max-width: 100%; 
+            max-height: 100%; 
+            object-fit: cover;
+            max-width: 100%; 
+            max-height: 100%; 
         }
 
         .survey-image {
             width: 400px;
             margin-bottom: 10px;
+            object-fit: cover;
+            max-width: 100%; 
+            max-height: 100%; 
+            
         }
 
         .answer {
-            font-size: 25px; 
+            font-size: 20px; 
             font-weight: bold;
             border-color: gray;
             border-width: 3px;
@@ -37,6 +58,9 @@
             width: 350px;
             text-align: center;
             margin-top: 5px;
+            object-fit: cover;
+            max-width: 100%; 
+            max-height: 100%; 
         }
 
         .answer:hover {
@@ -48,13 +72,13 @@
         .highlight {
             color: #F59D32;
             font-weight: bold;
-            font-size: 30px;
+            font-size: 25px;
         }
 
         .highlight2 {
             color: #1C39BB;
             font-weight: bold;
-            font-size: 30px;
+            font-size: 25px;
         }
 
         .container {
@@ -64,6 +88,11 @@
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            flex-direction: column;
         }
     </style>
 
