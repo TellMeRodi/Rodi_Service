@@ -1,31 +1,9 @@
 /* custom.css 파일 */
 @font-face {
-    font-family: 'Protest_Riot';
-    src: url('/static/fonts/Protest_Riot/Protest_Riot/ProtestRiot-Regular.ttf') format('truetype'); /* Protest_Riot 파일 경로를 정확히 지정하세요. */
-}
-@font-face {
-    font-family: 'Black_Han_Sans';
-    src: url('/static/fonts/Black_Han_Sans/BlackHanSans-Regular.ttf') format('truetype'); 
-}
-
-
-@font-face {
     font-family: 'Dovemayo_gothic';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.1/Dovemayo_gothic.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
-}
-
-
-.KoreanText {
-    font-family: 'Nanum Gothic', sans-serif;
-}
-
-.Protest_Riot {
-    font-family: 'Protest_Riot', cursive; /* Protest_Riot 글꼴을 선택합니다. */
-}
-.Black_Han_Sans{
-    font-family: 'Black_Han_Sans', cursive;
 }
 
 .Dovemayo_gothic{

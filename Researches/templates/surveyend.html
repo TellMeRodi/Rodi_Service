@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block body %}
-    <div style="text-align: center; margin-top: 40px;">
-        <h1 class="Dovemayo_gothic" style="margin-bottom: 20px; font-size: 45px; font-weight: bold;">설문이 완료되었습니다 😆 </h1>
+    <div style="text-align: center;">
+        <h1 class="Dovemayo_gothic" style="margin-bottom: 20px; font-size: 27px; font-weight: bold;">설문이 완료되었습니다 😆 </h1>
         <img style='width: 350px;' src = "{% static 'images/surveyend.png' %}">
         <form id="surveyend" method="POST" action="{% url 'Researches:surveyend' %}">
             {% csrf_token %}
