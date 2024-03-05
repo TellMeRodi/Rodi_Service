@@ -2,16 +2,16 @@
 {% load static %}
 {% block body %}
     <div style="text-align: center; margin-top: 40px;">
-        <h1 style="margin-bottom: 20px; font-size: 45px; font-weight: bold;" class="Dovemayo_gothic">
+        <h1 class="question Dovemayo_gothic">
             여행 계획을 짜는 중입니다! <br>
             여행 계획이 어떻게 되세요?
         </h1>
-        <img style='width: 350px;' src = "{% static 'images/style2.jpg' %}">
+        <img class="survey-image" src = "{% static 'images/style2.png' %}">
         <form method="POST">
             {% csrf_token %}
             <div  class="d-grid gap-2 col-4 mx-auto" id="fontDiv">
-                <button type="submit" name="style2" value="0" class="btn btn-light border border-secondary border-3 Dovemayo_gothic" style="font-size: 24px; font-weight: bold;">여행은 무조건 <span class="highlight">숙박</span>이지!</button>
-                <button type="submit" name="style2" value="1" class="btn btn-light border border-secondary border-3 Dovemayo_gothic" style="font-size: 24px; font-weight: bold;">알찬 <span class="highlight2">당일</span>치기도 좋아!</button>
+                <button type="submit" name="style2" value="0" class="btn Dovemayo_gothic answer">여행은 무조건 <span class="highlight">숙박</span>이지!</button>
+                <button type="submit" name="style2" value="1" class="btn Dovemayo_gothic answer">알찬 <span class="highlight2">당일</span>치기도 좋아!</button>
             </div>
         </form>
     </div>    
