@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -80,9 +81,9 @@ WSGI_APPLICATION = "RODI.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # 사용할 데이터베이스 엔진
-        'NAME': 'ResearchesDB', # 데이터베이스 이름 
-        'USER': 'Rodi', # 접속할 Database 계정 아이디 ex) root
-        'PASSWORD': '!@Rodi1234',  # 접속할 Database 계정 비밀번호 ex) 1234
+        'NAME': 'researchesDB_new', # 데이터베이스 이름 
+        'USER': 'rodi', # 접속할 Database 계정 아이디 ex) root
+        'PASSWORD': '1234',  # 접속할 Database 계정 비밀번호 ex) 1234
         'HOST': '13.208.95.65',   # host는 로컬 환경에서 동작한다면 ex) localhost
         'PORT': '3306', # 설치시 설정한 port 번호를 입력한다. ex) 3306
     }
