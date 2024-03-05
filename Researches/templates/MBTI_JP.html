@@ -2,15 +2,16 @@
 {% load static %}
 {% block body %}
     <div style="text-align: center; margin-top: 40px;">
-        <h1 style="margin-bottom: 20px; font-size: 45px; font-weight: bold;" class="Dovemayo_gothic">
-            로컬푸드에 도전했더니 배탈이 났다. 뒤의 일정은 어쩌지?
+        <h1 class="question Dovemayo_gothic">
+            로컬푸드에 도전했더니 배탈이 났다. <br>
+            뒤의 일정은 어쩌지?
         </h1>
-        <img style='width: 350px;' src = "{% static 'images/JP.png' %}">
+        <img class="survey-image" src = "{% static 'images/JP.jpeg' %}">
         <form method="POST">
             {% csrf_token %}
-            <div  class="d-grid gap-2 col-4 mx-auto" id="fontDiv">
-                <button type="submit" name="MBTI_JP" value="J" class="btn btn-light border border-secondary border-3 Dovemayo_gothic" style="font-size: 24px; font-weight: bold;"><span class="highlight">J </span>이럴 줄 알고 상비약을 준비해왔지-_-v. <br>먹고 괜찮으면 일정대로 가야지.</button>
-                <button type="submit" name="MBTI_JP" value="P" class="btn btn-light border border-secondary border-3 Dovemayo_gothic" style="font-size: 24px; font-weight: bold;"><span class="highlight2">P </span>(구글맵으로 약국을 검색하며) 어우 컨디션 너무 안좋아. 오늘은 쉬자. </button>
+            <div id="fontDiv">
+                <button type="submit" name="MBTI_JP" value="J" class="btn Dovemayo_gothic answer"><span class="highlight">J </span>준비해온 상비약을 먹고<br>일정을 소화한다.</button><br>
+                <button type="submit" name="MBTI_JP" value="P" class="btn Dovemayo_gothic answer"><span class="highlight2">P </span>어우 컨디션 너무 안좋아.<br>오늘은 쉬자. </button>
             </div>
         </form>
     </div> 

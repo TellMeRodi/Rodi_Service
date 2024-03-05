@@ -31,15 +31,3 @@
 .Dovemayo_gothic{
     font-family: 'Dovemayo_gothic', cursive;
 }
-
-.highlight {
-    color: #F59D32; /* 받기 텍스트를 초록색으로 설정합니다. */
-    font-weight: bold;
-    font-size: 30px;
-}
-
-.highlight2 {
-    color: #1C39BB; /* 받기 텍스트를 초록색으로 설정합니다. */
-    font-weight: bold;
-    font-size: 30px;
-}
