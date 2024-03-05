@@ -6,7 +6,7 @@ DATABASES = {
         'USER': 'Rodi', # 접속할 Database 계정 아이디 ex) root
         'PASSWORD': '!@Rodi1234',  # 접속할 Database 계정 비밀번호 ex) 1234
         'HOST': '13.208.95.65',   # host는 로컬 환경에서 동작한다면 ex) localhost
-        'PORT': '8913', # 설치시 설정한 port 번호를 입력한다. ex) 3306
+        'PORT': '3306', # 설치시 설정한 port 번호를 입력한다. ex) 3306
     }
 }
 
