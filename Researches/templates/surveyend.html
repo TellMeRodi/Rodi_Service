@@ -2,24 +2,75 @@
 {% load static %}
 {% block body %}
     <div style="text-align: center;">
-        <h1 class="Dovemayo_gothic" style="margin-bottom: 20px; font-size: 27px; font-weight: bold;">설문이 완료되었습니다 😆 </h1>
-        <img style='width: 350px;' src = "{% static 'images/surveyend.png' %}">
+        <h1 class="Dovemayo_gothic" style="font-size: 37px; font-weight: bold;">설문이 완료되었습니다 😆</h1>
+        <h1 class="Dovemayo_gothic" style="margin-top:100px; font-size: 20px; font-weight: bold;">여행 추천 AI RODI의 추천여행지가 궁금하신가요?</h1>
         <form id="surveyend" method="POST" action="{% url 'Researches:surveyend' %}">
             {% csrf_token %}
-            <button type="submit" class="btn btn-light border border-secondary border-3 Dovemayo_gothic" style="font-size: 24px; font-weight: bold;" onclick="recommendations()">설문결과확인</button>
+            <button type="submit" class="home-button btn btn-light border border-secondary border-3 Dovemayo_gothic" style="font-size: 24px; font-weight: bold; margin-bottom: 20px;" onclick="recommendations()">설문결과확인</button>
         </form>
-
-        <div id="loading-message" style="display: none; margin-bottom: 20px; font-size: 20px; font-weight: bold;" class="Dovemayo_gothic">로딩 중...</div>
+        <div id="overlay" style="display:none;"></div>
+        <div id="loading-message" style="display: none; font-size: 30px; font-weight: bold;" class="Dovemayo_gothic">로딩 중...</div>
     </div>
+    <style>
+        body {
+            background-image: url("{% static 'images/surveyend.png' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
+        }
+        
+        .Protest_Riot {
+        color: rgb(1, 1, 1); 
+        }
+
+        h1 {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 600px;
+            margin: 0;
+            font-size: 27px;
+            font-weight: bold;
+        }
+        #overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        opacity: 0.7;
+        z-index: 10;
+        }
+
+        #loading-message {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 20;
+    }
+        form {
+            position: absolute;
+            bottom: 15%; /* 아래에서 20% 위치 */
+            left: 50%;
+            transform: translate(-50%, 50%);
+        }
+
+    </style>
 
     <script>
     function recommendations() {
         // 버튼 비활성화
         var button = document.getElementById('surveyend').querySelector('button');
         button.disabled = true;
-
+        var overlay = document.getElementById('overlay');
         // 로딩 메시지 표시
         var loadingMessage = document.getElementById('loading-message');
+        overlay.style.display = 'block';
         loadingMessage.style.display = 'block';
 
         // 'result.html'로 페이지 이동
