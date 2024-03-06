@@ -1,21 +1,21 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block body %}
-    <div style="text-align: center; margin-bottom: -20%;">
-        <a href="{% url 'Researches:style2' %}" class="btn Dovemayo_gothic home-button" style="font-size: 20px; font-weight: bold;">여행지 추천 받기>></a>
-    </div>    
-    
+
+    <div style="position: fixed; left: 0; right: 0; bottom: 15%; text-align: center; display: flex; justify-content: center; align-items: center; height: 100px;">
+        <a href="{% url 'Researches:style2' %}" class="btn Dovemayo_gothic home-button" style="font-size: 25px; font-weight: bold; display: flex; justify-content: center; align-items: center;">여행지 추천 받기>></a>
+    </div>
     <style>
         body {
-            background-image: url("{% static 'images/home.jpeg' %}");
-            background-size: 768px;
+            background-image: url("{% static 'images/home.png' %}");
+            background-size: cover;
             background-repeat: no-repeat;
             background-position: center center;
             background-attachment: fixed;
         }
-        
+
         .Protest_Riot {
-        color: rgb(12, 12, 12); 
+        color: rgb(1, 1, 1); 
         }
     </style>
 {% endblock %}
