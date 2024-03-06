@@ -2,20 +2,106 @@
 {% load static %}
 {% block body %}
 
-    <div style="position: fixed; left: 0; right: 0; bottom: 15%; text-align: center; display: flex; justify-content: center; align-items: center; height: 100px;">
-        <a href="{% url 'Researches:style2' %}" class="btn Dovemayo_gothic home-button" style="font-size: 25px; font-weight: bold; display: flex; justify-content: center; align-items: center;">여행지 추천 받기>></a>
-    </div>
-    <style>
-        body {
-            background-image: url("{% static 'images/home.png' %}");
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-attachment: fixed;
-        }
+<div style="position: fixed; left: 0; right: 0; bottom: 15%; text-align: center; display: flex; justify-content: center; align-items: center; height: 100px;">
+    <a href="{% url 'Researches:style2' %}" class="btn Dovemayo_gothic home-button" style="font-size: 25px; font-weight: bold; display: flex; justify-content: center; align-items: center;">여행지 추천 받기>></a>
+</div>
+<div style="position: fixed; left: 10px; bottom: 10px; margin: 20px;">
+    <button id="openModal"></button>
+    <span class="Dovemayo_gothic" style="margin-left: 10px; font-size: 25px; color:rgb(6, 100, 120);">RODI?</span>
+</div>
 
-        .Protest_Riot {
-        color: rgb(1, 1, 1); 
-        }
-    </style>
+<div id="myModal" class="modal" style="display:none;">
+    <div class="modal-content">
+        <div class="modal-rodi"></div>
+        <p style="margin-top:20px">안녕!</p>
+        <p>나는 너의 여행길(ROad)을 디자인(DesIgn)해주는 AI 추천모델 RODI야.</p>
+        <p>나와 함께 여행을 떠나볼래?</p>
+    </div>
+</div>
+
+<style>
+    body {
+        background-image: url("{% static 'images/home.png' %}");
+        background-size: 350px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+    }
+
+    .Protest_Riot {
+    color: rgb(1, 1, 1); 
+    }
+    .modal-rodi {
+        width: 70px; 
+        height: 70px;
+        border-radius: 50%;
+        background-image: url("{% static 'images/modal_rodi.png' %}");
+        border: 2px solid rgb(8, 135, 165);
+        background-size: cover;
+        margin: auto;
+    }
+    #openModal {
+        width: 70px; 
+        height: 70px;
+        border-radius: 50%;
+        background-image: url("{% static 'images/modal_rodi.png' %}");
+        border: 2px solid rgb(8, 135, 165);
+        cursor: pointer;
+        background-size: cover;
+    }
+
+    #openModal::after {
+        width: 70px; 
+        height: 70px;
+        border-radius: 50%;
+        content: ""; /* 필수 */
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.2); /* 뿌옇게 보이는 효과 */
+        opacity: 0; /* 기본 상태에서는 보이지 않음 */
+        transition: opacity 0.3s ease-in-out;
+    }
+    #openModal:hover::after {
+        opacity: 1; /* 마우스를 올렸을 때 뿌옇게 보이는 효과가 활성화 */
+    }
+    .modal {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 2; /* Ensure modal is above other content */
+    }
+
+    .modal-content {
+        position: fixed;
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 5px;
+        text-align: center;
+        width: auto;
+        max-width: 80%; /* Prevent very wide modal on large screens */
+    }
+</style>
+
+<script>
+    document.getElementById('openModal').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent default action
+    document.getElementById('myModal').style.display = 'flex';
+    });
+
+    window.addEventListener('click', function(event) {
+    var modal = document.getElementById('myModal');
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
+    });
+</script>
 {% endblock %}
