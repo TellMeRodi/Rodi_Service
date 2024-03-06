@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-yabkzw#8fzvend5_3_@46v4_%v)3swur7+^vi_aj(br!(ekl_#"
+SECRET_KEY = config('MYSQL_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -80,11 +81,11 @@ WSGI_APPLICATION = "RODI.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # 사용할 데이터베이스 엔진
-        'NAME': 'researchesDB_new', # 데이터베이스 이름 
-        'USER': 'rodi', # 접속할 Database 계정 아이디 ex) root
-        'PASSWORD': '1234',  # 접속할 Database 계정 비밀번호 ex) 1234
-        'HOST': '13.208.95.65',   # host는 로컬 환경에서 동작한다면 ex) localhost
-        'PORT': '3306', # 설치시 설정한 port 번호를 입력한다. ex) 3306
+        'NAME': config('MYSQL_DBNAME'), # 데이터베이스 이름
+        'USER': config('MYSQL_USERNAME'), # 접속할 Database 계정 아이디 ex) root
+        'PASSWORD': config('MYSQL_PASSWD'),  # 접속할 Database 계정 비밀번호 ex$
+        'HOST': config('MYSQL_HOST'),   # host는 로컬 환경에서 동작한다면 ex) l$
+        'PORT': config('MYSQL_PORT'), # 설치시 설정한 port 번호를 입력한다. ex) 3306
     }
 }
 
