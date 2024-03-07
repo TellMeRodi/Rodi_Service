@@ -9,7 +9,15 @@ app = FastAPI()
 # CORS 미들웨어 추가
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://127.0.0.1:8000", "http://13.208.95.65:8913"],  # Django 서버의 주소
+    allow_origins=[
+        "http://127.0.0.1:8000", # 로컬 서버 
+        "http://13.208.95.65:8908", # HHJ
+        "http://13.208.95.65:8909", # BHJ
+        "http://13.208.95.65:8910", # YGY 
+        "http://13.208.95.65:8911", # LDH
+        "http://13.208.95.65:8912", # LSH
+        "http://13.208.95.65:8913", # CHE
+        ], 
     allow_credentials=True,
     allow_methods=["GET", "POST"],
     allow_headers=["*"],
