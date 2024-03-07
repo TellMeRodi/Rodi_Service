@@ -1,44 +1,88 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block body %}
-    <div class="Dovemayo_gothic" style="margin-top: 10px; text-align: center; max-width: 100%; max-height: 100%; object-fit: cover;">
-        {% if traveler_type %}
-            <div id="Type_Title">
-                <h1 style="font-size: 30px; font-weight: bold; margin-bottom:20px;">당신은 <span style="color:#F59D32">{{ traveler_type }}</span> 타입의 여행자!</h2>
-            </div>
-            
-            <div id="Type_Description">
-                <img src="{% static 'images/' %}{{ type_photo }}" alt="{{ traveler_type }} image" style="text-align: center; width: 380px; max-width: 100%; max-height: 100%; object-fit: cover; margin-bottom:15px">
-                <div style="margin-bottom: 10px;">     
-                    {% for city in traveler_type_cities %}
-                        <span style="font-size: 25px; font-weight: bold;">{{ city }}</span>
-                    {% endfor %}
-                </div>
-                <p style="color:#1C39BB">{{ type_keyword }}</p>
-            </div>
-            
-            <div style="background-color: rgba(255,255,255,0.5); border-radius: 10px; margin-bottom:20px;">
-                <p style="font-size: 18px; margin:10px">{{ type_descr }}</p>
-                
-            </div>
-            
-            <div>
-            <h3 style="margin-top: 30px; margin-bottom: 10px; font-size: 25px; font-weight: bold;">이런 곳도 추천해요!</h3>
-                {% for city2 in recommended_cities %}
-                <span style="font-size: 20px;">{{ city2 }}</span>
-                {% endfor %}
-            </div>
-        {% else %}
-            <p>추천할 도시를 찾을 수 없습니다.</p>
-        {% endif %}
+  <div class="Dovemayo_gothic" style="min-height: 100vh; padding-bottom:20px; margin-top: 10px; margin-bottom: 40px; text-align: center; max-width: 100%; max-height: 100%; object-fit: cover;">
+      {% if traveler_type %}
+          <div id="Type_Title">
+              <h1 style="font-size: 30px; font-weight: bold; margin-bottom:20px;">당신은 <span style="color:#F59D32">{{ traveler_type }}</span> 타입의 여행자!</h2>
+          </div>
+          
+          <div id="Type_Description">
+              <img src="{% static 'images/' %}{{ type_photo }}" alt="{{ traveler_type }} image" style="text-align: center; width: 380px; max-width: 100%; max-height: 100%; object-fit: cover; margin-bottom:15px">
+              <div style="margin-bottom: 10px;">     
+                  {% for city in traveler_type_cities %}
+                      <span style="font-size: 25px; font-weight: bold;">{{ city }}</span>
+                  {% endfor %}
+              </div>
+              <p style="color:#1C39BB">{{ type_keyword }}</p>
+          </div>
+          
+          <div style="background-color: rgba(255,255,255,0.5); border-radius: 10px; margin-bottom:20px;">
+              <p style="font-size: 18px; margin:10px">{{ type_descr }}</p>
+              
+          </div>
+          
+          <div>
+          <h3 style="margin-top: 30px; margin-bottom: 10px; font-size: 25px; font-weight: bold;">이런 곳도 추천해요!</h3>
+              {% for city2 in recommended_cities %}
+              <span style="font-size: 20px;">{{ city2 }}</span>
+              {% endfor %}
+          </div>
+      {% else %}
+          <p>추천할 도시를 찾을 수 없습니다.</p>
+      {% endif %}
 
-        {% if error %}
-            <p>오류: {{ error }}</p>
-        {% endif %}
-        <div style="margin:30px; display: flex; justify-content: center; align-items: center;">
-          <a href="{% url 'Researches:home' %}" class="btn Dovemayo_gothic home-button" style="font-size: 25px; font-weight: bold; display: flex; justify-content: center; align-items: center;">다시하기</a>
-        </div>
+      {% if error %}
+          <p>오류: {{ error }}</p>
+      {% endif %}
+    <div style="margin:20px;">
+        <h4 class="Dovemayo_gothic" style="font-weight: bold;">공유하기</h4>
+        <a id="kakao-link-btn" href="javascript:kakaoShare()" style="height:30px; width:30px;">
+            <img src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png" style="height:30px; width:30px;" />
+        </a>
     </div>
-    
+    <div style="padding-bottom: 50px; margin:20px; display: flex; justify-content: center; align-items: center;">
+      <a href="{% url 'Researches:home' %}" class="btn Dovemayo_gothic home-button" style="font-size: 25px; font-weight: bold; display: flex; justify-content: center; align-items: center;">다시하기</a>
+    </div>
+  </div>
+  <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+
+  <script type="text/javascript">
+  // SDK를 초기화 합니다. 사용할 앱의 JavaScript 키를 설정해 주세요.
+  Kakao.init('a5861651a339838d5d7c085f6003023d');
+
+  // SDK 초기화 여부를 판단합니다.
+  console.log(Kakao.isInitialized());
+
+  function kakaoShare() {
+    var currentUrl = window.location.href;
+    var imageUrl = document.getElementById('sharedImage').src;
+
+
+    Kakao.Link.sendDefault({
+      objectType: 'feed',
+      content: {
+        title: 'RODI 알려줘!',
+        description: '나에게 찰떡같은 국내 여행지가 궁금하다면?',
+        imageUrl: imageUrl,
+        link: {
+          mobileWebUrl: currentUrl,
+          webUrl: currentUrl,
+        },
+      },
+      buttons: [
+        {
+          title: '웹으로 보기',
+          link: {
+            mobileWebUrl: currentUrl,
+            webUrl: currentUrl,
+          },
+        },
+      ],
+      // 카카오톡 미설치 시 카카오톡 설치 경로이동
+      installTalk: true,
+    })
+  }
+  </script>
 
 {% endblock %}
