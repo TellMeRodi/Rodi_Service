@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block body %}
-  <div class="Dovemayo_gothic" style="min-height: 100vh; padding-bottom:20px; margin-top: 10px; margin-bottom: 40px; text-align: center; max-width: 100%; max-height: 100%; object-fit: cover;">
+  <div class="Dovemayo_gothic" style="margin-top: 20px; margin-bottom: 40px; text-align: center; max-width: 100%; max-height: 100%; object-fit: cover;">
       {% if traveler_type %}
-          <div id="Type_Title">
+          <div id="Type_Title" style="margin-top: 40px;">
               <h1 style="font-size: 30px; font-weight: bold; margin-bottom:20px;">당신은 <span style="color:#F59D32">{{ traveler_type }}</span> 타입의 여행자!</h2>
           </div>
           
           <div id="Type_Description">
-              <img src="{% static 'images/' %}{{ type_photo }}" alt="{{ traveler_type }} image" style="text-align: center; width: 380px; max-width: 100%; max-height: 100%; object-fit: cover; margin-bottom:15px">
+              <img id="sharedImage" src="{% static 'images/' %}{{ type_photo }}" alt="{{ traveler_type }} image" style="text-align: center; width: 380px; max-width: 100%; max-height: 100%; object-fit: cover; margin-bottom:15px">
               <div style="margin-bottom: 10px;">     
                   {% for city in traveler_type_cities %}
                       <span style="font-size: 25px; font-weight: bold;">{{ city }}</span>
@@ -56,15 +56,14 @@
 
   function kakaoShare() {
     var currentUrl = window.location.href;
-    var imageUrl = document.getElementById('sharedImage').src;
-
+    var imageElement = document.getElementById('sharedImage').src;
 
     Kakao.Link.sendDefault({
       objectType: 'feed',
       content: {
         title: 'RODI 알려줘!',
         description: '나에게 찰떡같은 국내 여행지가 궁금하다면?',
-        imageUrl: imageUrl,
+        imageUrl: imageElement.src,
         link: {
           mobileWebUrl: currentUrl,
           webUrl: currentUrl,
