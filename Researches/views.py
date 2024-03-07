@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Question
 import requests
 from . import matrics_describe
+from decouple import config
 
 # Create your views here.
 def home(request):
@@ -156,8 +157,9 @@ def surveyend(request):
 
 def get_recommendations(request):
     data = definite_data(request.session)
-    # FastAPI 엔드포인트 URL
-    fastapi_url = "http://localhost:8001/home/recommendations/"
+
+    # 개인화된 uvicorn 엔트리포인트로 FastAPI 엔드포인트 설정
+    fastapi_url = f"http://localhost:{config('MY_UVICORN_ENTRY')}/home/recommendations/"
     
     # 장고 뷰로 받은 데이터를 FastAPI 엔드포인트로 전달
     response = requests.post(fastapi_url, json=data)  # 수정된 부분
